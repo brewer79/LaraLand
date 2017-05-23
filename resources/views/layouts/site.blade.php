@@ -27,7 +27,7 @@
       <header>
           @yield('header')
       </header>
-
+          @yield('slider')
           @yield('content')
 
    <script type="text/javascript" src="{{ asset('assets/owl-carousel/owl.carousel.js') }}"></script>

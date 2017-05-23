@@ -5,7 +5,7 @@
 
     <div id="hiters" >
         <ul style="padding:0px 0px 0px 0px">
-            <li><a  href="{{route('page')}}">
+            <li><a  href="{{route('pages')}}">
                     <h5>Страницы</h5>
                 </a>
             </li>

@@ -45,6 +45,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function () {
         Route::match(['get', 'post', 'delete'], '/edit/{page}', ['uses'=>'PagesEditController@execute', 'as'=>'pagesEdit']);
     });
 
+    Route::group(['prefix'=>'sliders'], function(){
+
+        Route::get('/', ['uses'=>'SliderController@execute', 'as'=>'slider']);
+        Route::match(['get', 'post'], '/add', ['uses'=>'SliderAddController@execute', 'as'=>'sliderAdd']);
+        Route::match(['get', 'post', 'delete'], '/edit/{slider}', ['uses'=>'SliderEditController@execute', 'as'=>'sliderEdit']);
+    });
+
     Route::group(['prefix'=>'about'], function(){
 
         Route::get('/', ['uses'=>'AboutController@execute', 'as'=>'about']);

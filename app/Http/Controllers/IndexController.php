@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Page;
+use App\Slider;
 use App\About;
 use App\Portfolio;
 use App\Service;
@@ -48,6 +49,7 @@ class IndexController extends Controller
         }
 
         $pages = Page::all();
+        $sliders = Slider::all();
         $about = About::all();
         $portfolios = Portfolio::get(array('name', 'description', 'images'));
         $services = Service::where('id', '<', 20)->get();
@@ -77,6 +79,7 @@ class IndexController extends Controller
         return view('site.index', array(
                                         'menu' => $menu,
                                         'pages' => $pages,
+                                        'sliders' => $sliders,
                                         'features' => $features,
                                         'about' => $about,
                                         'portfolios' => $portfolios,

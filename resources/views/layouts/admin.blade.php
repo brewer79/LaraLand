@@ -47,6 +47,7 @@
         </div>
     @endif
 </header>
+@yield('slider')
 @yield('content')
 </body>
 </html>
