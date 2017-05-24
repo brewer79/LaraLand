@@ -13,7 +13,8 @@ class ChangePagesTable extends Migration
     public function up()
     {
         Schema::table('pages', function (Blueprint $table) {
-            $table->string('name', 150)->change();
+            //
+            $table->dropColumn('images');
         });
     }
 

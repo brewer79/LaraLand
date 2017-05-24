@@ -1,13 +1,16 @@
 <section>
-
+    <!-- SLIDER is here! -->
     <!-- FIRST BLOCK -->
+    @if(isset($pages) && is_object($pages))
+    @foreach($pages as $page)
     <div id="first-block">
         <div class="line">
-            <h1>Amazing Responsive Business Template</h1>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            {!! $page->text !!}
             <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Us</a></div>
         </div>
     </div>
+    @endforeach
+    @endif
     <!-- FEATURES -->
     @if(isset($features) && is_object($features))
     <div id="features">
@@ -25,21 +28,22 @@
     </div>
     @endif
     <!-- ABOUT US -->
+    @if(isset($about) && is_object($about))
+    @foreach($about as $item)
     <div id="about-us">
         <div class="s-12 m-12 l-6 media-container">
-            <img src="{{ asset('assets/img/about.jpg') }}" alt="">
+            {!! Html::image('assets/img/'.$item->images) !!}
         </div>
         <article class="s-12 m-12 l-6">
-            <h2>We are<br> Web Design<br> Heroes</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                lobortis nisl ut aliquip ex ea commodo consequat.
-            </p>
+            {!! $item->name !!}
+            <p>{{ $item->text }}</p>
             <div class="about-us-icons">
                 <i class="icon-paperplane_ico"></i> <i class="icon-trophy"></i> <i class="icon-clock"></i>
             </div>
         </article>
     </div>
+    @endforeach
+    @endif
     <!-- OUR WORK -->
     <div id="our-work">
         <div class="line">
@@ -93,34 +97,24 @@
         </div>
     </div>
     <!-- SERVICES -->
+    @if(isset($services) && is_object($services))
     <div id="services">
         <div class="line">
             <h2 class="section-title">What we do</h2>
             <div class="margin">
+                @foreach($services as $service)
                 <div class="s-12 m-6 l-4 margin-bottom">
-                    <i class="icon-vector"></i>
+                    <i class="{{ $service->icon }}"></i>
                     <div class="service-text">
-                        <h3>We create</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <h3>{{ $service->name }}</h3>
+                        <p>{{ $service->text }}</p>
                     </div>
                 </div>
-                <div class="s-12 m-6 l-4 margin-bottom">
-                    <i class="icon-eye"></i>
-                    <div class="service-text">
-                        <h3>We look to the future</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                </div>
-                <div class="s-12 m-12 l-4 margin-bottom">
-                    <i class="icon-random"></i>
-                    <div class="service-text">
-                        <h3>We find a solution</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
+    @endif
     <!-- LATEST NEWS -->
     <div id="latest-news">
         <div class="line">
