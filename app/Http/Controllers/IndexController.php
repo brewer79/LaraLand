@@ -51,14 +51,19 @@ class IndexController extends Controller
         $pages = Page::all();
         $sliders = Slider::all();
         $about = About::all();
-        $portfolios = Portfolio::get(array('name', 'description', 'images'));
-        $services = Service::where('id', '<', 20)->get();
-        $features = Feature::take(5)->get();
+        $portfolios = Portfolio::all();
+        $services = Service::all();
+        $features = Feature::all();
 
         $menu = array();
 
         $item = array('title'=>'Home', 'alias'=>'carousel');
         array_push($menu, $item);
+
+        foreach($pages as $page){
+            $item = array('title'=>$page->name, 'alias'=>$page->alias);
+            array_push($menu, $item);
+        }
 
         $item = array('title'=>'Features', 'alias'=>'features');
         array_push($menu, $item);
