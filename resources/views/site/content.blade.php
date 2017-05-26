@@ -45,57 +45,47 @@
     @endforeach
     @endif
     <!-- OUR WORK -->
+    @if(isset($filters) && is_object($filters))
+        @if(isset($portfolios) && is_object($portfolios))
     <div id="our-work">
         <div class="line">
             <h2 class="section-title">Our Work</h2>
             <div class="tabs">
-                <div class="tab-item tab-active">
-                    <a class="tab-label active-btn">Web Design</a>
+                @foreach($filters as $filter)
+                <div class="tab-item ">
+                    <a class="tab-label">{{ $filter->alias }}</a>
                     <div class="tab-content">
                         <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por1.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por4.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por6.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por3.jpg') }}" alt=""></a></div>
+                            @if($filter->alias == 'Development')
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por7.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por5.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por1.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por2.jpg') }}" alt=""></a></div>
+                            @elseif($filter->alias == 'Social Campaigns')
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por4.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por6.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por3.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por5.jpg') }}" alt=""></a></div>
+                            @elseif($filter->alias == 'Photography')
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por7.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por2.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por5.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por6.jpg') }}" alt=""></a></div>
+                            @else
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por1.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por4.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por6.jpg') }}" alt=""></a></div>
+                                <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por3.jpg') }}" alt=""></a></div>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="tab-item">
-                    <a class="tab-label">Development</a>
-                    <div class="tab-content">
-                        <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por7.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por5.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por1.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por2.jpg') }}" alt=""></a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-item">
-                    <a class="tab-label">Social Campaigns</a>
-                    <div class="tab-content">
-                        <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por4.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por6.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por3.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por5.jpg') }}" alt=""></a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-item">
-                    <a class="tab-label">Photography</a>
-                    <div class="tab-content">
-                        <div class="margin">
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por7.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por2.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por5.jpg') }}" alt=""></a></div>
-                            <div class="s-12 m-6 l-3"><a class="our-work-container lightbox margin-bottom"><div class="our-work-text"><h4>Lorem Ipsum Dolor</h4><p>Laoreet dolore magna aliquam erat volutpat.</p></div><img src="{{ asset('assets/img/por6.jpg') }}" alt=""></a></div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
+    @endif
+    @endif
     <!-- SERVICES -->
     @if(isset($services) && is_object($services))
     <div id="services">

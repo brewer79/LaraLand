@@ -12,9 +12,9 @@ use App\About;
 use App\Portfolio;
 use App\Service;
 use App\Feature;
+use App\Filter;
 
 use Mail;
-
 use DB;
 
 class IndexController extends Controller
@@ -43,7 +43,6 @@ class IndexController extends Controller
             if($result){
                 return redirect()->route('home')->with('status', 'Email is send');
             }
-            //mail
 
 
         }
@@ -54,6 +53,7 @@ class IndexController extends Controller
         $portfolios = Portfolio::all();
         $services = Service::all();
         $features = Feature::all();
+        $filters = Filter::all();
 
         $menu = array();
 
@@ -88,6 +88,7 @@ class IndexController extends Controller
                                         'features' => $features,
                                         'about' => $about,
                                         'portfolios' => $portfolios,
+                                        'filters' => $filters,
                                         'services' => $services,
                                         ));
     }
