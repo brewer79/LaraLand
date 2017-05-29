@@ -8,4 +8,6 @@ class Page extends Model
 {
     //
     protected $table = 'pages';
+
+    protected $fillable = ['name', 'alias', 'text', 'images'];
 }

@@ -3,7 +3,7 @@
     <!-- FIRST BLOCK -->
     @if(isset($pages) && is_object($pages))
     @foreach($pages as $page)
-    <div id="first-block">
+    <div id="{{ $page->alias }}">
         <div class="line">
             {!! $page->text !!}
             <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Contact Us</a></div>

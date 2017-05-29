@@ -11,7 +11,7 @@
       <!-- CUSTOM STYLE -->
       <link rel="stylesheet" href="{{ asset('assets/css/template-style.css') }}">
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-      <script type="text/javascript" src="{{ asset('assets/js/jquery-1.8.3.min.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('assets/js/jquery-1.11.0.min.js') }}"></script>
       <script type="text/javascript" src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
       <script type="text/javascript" src="{{ asset('assets/js/modernizr.js') }}"></script>
       <script type="text/javascript" src="{{ asset('assets/js/responsee.js') }}"></script>
