@@ -27,7 +27,10 @@ class PagesAddController extends Controller
                 'text' => 'required'
             ], $messages);
             if($validator->fails()){
-                return redirect()->route('pagesAdd')->withErrors($validator)->withInput();
+                return redirect()
+                    ->route('pagesAdd')
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
             if($request->hasFile('images')){
