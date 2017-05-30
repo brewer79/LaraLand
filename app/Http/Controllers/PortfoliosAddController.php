@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Validator;
-use App\Page;
+use App\Portfolio;
 
-class PagesAddController extends Controller
+class PortfoliosAddController extends Controller
 {
     public function execute(Request $request){
 
@@ -16,18 +16,17 @@ class PagesAddController extends Controller
             $input = $request->except('_token');
 
             $messages = [
-                'required' => 'Поле :attribute обязательно к заполнению',
-                'unique' => 'Поле :attribute должно быть уникальным'
+                'required' => 'Поле :attribute обязательно к заполнению'
             ];
 
             $validator = Validator::make($input, [
                 'name' => 'required|max:255',
-                'alias' => 'required|unique:pages|max:255',
-                'text' => 'required'
+                'description' => 'required|max:255',
+                'images' => 'required'
             ], $messages);
             if($validator->fails()){
                 return redirect()
-                    ->route('pagesAdd')
+                    ->route('portfoliosAdd')
                     ->withErrors($validator)
                     ->withInput();
             }
@@ -37,19 +36,18 @@ class PagesAddController extends Controller
                 $input['images'] = $file->getClientOriginalName();
                 $file->move(public_path().'/assets/img', $input['images']);
             }
-            $page = new Page();
-            // $page->unguard(); предоставляется доступ ко ВСЕМ полям без ограничения => использовать осторожно
-            $page->fill($input);
-            if($page->save()){
-                return redirect('admin')->with('status', 'Страница добавлена');
+            $portfolio = new Portfolio();
+            $portfolio->fill($input);
+            if($portfolio->save()){
+                return redirect('admin')->with('status', 'Информация добавлена');
             }
         }
 
-        if(view()->exists('admin.pages_add')){
+        if(view()->exists('admin.portfolios_add')){
             $data = [
-                'title' => 'Новая страница'
+                'title' => 'Новый блок портфолио'
             ];
-            return view('admin.pages_add', $data);
+            return view('admin.portfolios_add', $data);
         }
         abort(404);
     }

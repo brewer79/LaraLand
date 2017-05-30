@@ -9,7 +9,6 @@ use App\Page;
 
 class PagesController extends Controller
 {
-    //
     public function execute(){
         if(view()->exists('admin.pages')){
             $pages = Page::all();

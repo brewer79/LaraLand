@@ -10,7 +10,6 @@ use Validator;
 
 class PagesEditController extends Controller
 {
-    //
     public function execute(Page $page, Request $request){
 
         /*$page = Page::find($id);*/
@@ -18,7 +17,7 @@ class PagesEditController extends Controller
         if($request->isMethod('delete')){
 
             $page->delete();
-            return redirect('admin')->with('status', 'Страница удалена');
+            return redirect('admin')->with('status', 'Страница успешно удалена');
         }
 
         $messages = [
